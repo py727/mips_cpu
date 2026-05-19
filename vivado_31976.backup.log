@@ -1,0 +1,79 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Thu May 14 12:09:32 2026
+# Process ID: 31976
+# Current directory: C:/Users/28193/Desktop/project11
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent31216 C:\Users\28193\Desktop\project11\project11.xpr
+# Log file: C:/Users/28193/Desktop/project11/vivado.log
+# Journal file: C:/Users/28193/Desktop/project11\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/28193/Desktop/project11/project11.xpr
+INFO: [Project 1-313] Project file moved from 'C:/Users/86198/Desktop/project11' since last save.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.4/data/ip'.
+WARNING: [IP_Flow 19-3664] IP 'ram' generated file not found 'c:/Users/28193/Desktop/project11/project11.srcs/sources_1/ip/ram/stats.txt'. Please regenerate to continue.
+WARNING: [IP_Flow 19-2162] IP 'ram' is locked:
+* IP definition 'Block Memory Generator (8.3)' for IP 'ram' (customized with software release 2017.2) has a newer minor version in the IP Catalog.
+Please select 'Report IP Status' from the 'Tools/Report' menu or run Tcl command 'report_ip_status' for more information.
+WARNING: [IP_Flow 19-2162] IP 'cpuclk' is locked:
+* IP definition 'Clocking Wizard (5.4)' for IP 'cpuclk' (customized with software release 2017.2) has a different revision in the IP Catalog.
+Please select 'Report IP Status' from the 'Tools/Report' menu or run Tcl command 'report_ip_status' for more information.
+WARNING: [IP_Flow 19-3664] IP 'prgrom' generated file not found 'c:/Users/28193/Desktop/project11/project11.srcs/sources_1/ip/prgrom/stats.txt'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'prgrom' generated file not found 'c:/Users/28193/Desktop/project11/project11.srcs/sources_1/ip/prgrom/prgrom.dcp'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'prgrom' generated file not found 'c:/Users/28193/Desktop/project11/project11.srcs/sources_1/ip/prgrom/prgrom_stub.v'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'prgrom' generated file not found 'c:/Users/28193/Desktop/project11/project11.srcs/sources_1/ip/prgrom/prgrom_stub.vhdl'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'prgrom' generated file not found 'c:/Users/28193/Desktop/project11/project11.srcs/sources_1/ip/prgrom/prgrom_sim_netlist.v'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'prgrom' generated file not found 'c:/Users/28193/Desktop/project11/project11.srcs/sources_1/ip/prgrom/prgrom_sim_netlist.vhdl'. Please regenerate to continue.
+WARNING: [IP_Flow 19-2162] IP 'prgrom' is locked:
+* IP definition 'Block Memory Generator (8.3)' for IP 'prgrom' (customized with software release 2017.2) has a newer minor version in the IP Catalog.
+Please select 'Report IP Status' from the 'Tools/Report' menu or run Tcl command 'report_ip_status' for more information.
+INFO: [Project 1-230] Project 'project11.xpr' upgraded for this version of Vivado.
+open_project: Time (s): cpu = 00:00:13 ; elapsed = 00:00:09 . Memory (MB): peak = 868.336 ; gain = 126.734
+update_compile_order -fileset sources_1
+report_ip_status -name ip_status 
+upgrade_ip [get_ips  {cpuclk prgrom ram}] -log ip_upgrade.log
+Upgrading 'cpuclk'
+WARNING: [IP_Flow 19-3374] An attempt to modify the value of disabled parameter 'CLKOUT2_REQUESTED_OUT_FREQ' from '100.000' to '10.000' has been ignored for IP 'cpuclk'
+INFO: [IP_Flow 19-3422] Upgraded cpuclk (Clocking Wizard 5.4) from revision 1 to revision 3
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'cpuclk'...
+CRITICAL WARNING: [Coretcl 2-1279] The upgrade of 'cpuclk' has identified issues that may require user intervention. Please review the upgrade log 'c:/Users/28193/Desktop/project11/ip_upgrade.log', and verify that the upgraded IP is correctly configured.
+Upgrading 'prgrom'
+INFO: [Project 1-386] Moving file 'C:/Users/28193/Desktop/project11/project11.srcs/sources_1/ip/prgrom/prgrom.xci' from fileset 'prgrom' to fileset 'sources_1'.
+INFO: [Device 21-403] Loading part xc7a100tfgg484-1
+INFO: [IP_Flow 19-1972] Upgraded prgrom from Block Memory Generator 8.3 to Block Memory Generator 8.4
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'prgrom'...
+Upgrading 'ram'
+INFO: [IP_Flow 19-1972] Upgraded ram from Block Memory Generator 8.3 to Block Memory Generator 8.4
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'ram'...
+INFO: [Coretcl 2-1525] Wrote upgrade log to 'C:/Users/28193/Desktop/project11/ip_upgrade.log'.
+upgrade_ip: Time (s): cpu = 00:00:24 ; elapsed = 00:00:22 . Memory (MB): peak = 1101.793 ; gain = 233.457
+export_ip_user_files -of_objects [get_ips {cpuclk prgrom ram}] -no_script -sync -force -quiet
+update_compile_order -fileset sources_1
+report_ip_status -name ip_status 
+launch_runs impl_1 -jobs 4
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'ram'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'prgrom'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'cpuclk'...
+INFO: [IP_Flow 19-1686] Generating 'Implementation' target for IP 'cpuclk'...
+[Thu May 14 12:12:25 2026] Launched prgrom_synth_1, cpuclk_synth_1, ram_synth_1, synth_1...
+Run output will be captured here:
+prgrom_synth_1: C:/Users/28193/Desktop/project11/project11.runs/prgrom_synth_1/runme.log
+cpuclk_synth_1: C:/Users/28193/Desktop/project11/project11.runs/cpuclk_synth_1/runme.log
+ram_synth_1: C:/Users/28193/Desktop/project11/project11.runs/ram_synth_1/runme.log
+synth_1: C:/Users/28193/Desktop/project11/project11.runs/synth_1/runme.log
+[Thu May 14 12:12:26 2026] Launched impl_1...
+Run output will be captured here: C:/Users/28193/Desktop/project11/project11.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 1139.340 ; gain = 16.547
+update_files -from_files C:/Users/28193/Desktop/project11/project11.srcs/sources_1/imports/1/minisys.v -to_files C:/Users/28193/Desktop/project11/project11.srcs/sources_1/imports/小组/minisys.v -filesets [get_filesets *]
+INFO: [filemgmt 20-762] Replacing file 'C:/Users/28193/Desktop/project11/project11.srcs/sources_1/imports/小组/minisys.v' with file 'C:/Users/28193/Desktop/project11/project11.srcs/sources_1/imports/1/minisys.v'.
+INFO: [filemgmt 20-1080] Importing file from 'C:/Users/28193/Desktop/project11/project11.srcs/sources_1/imports/1/minisys.v' to 'C:/Users/28193/Desktop/project11/project11.srcs/sources_1/imports/小组/minisys.v'.
+ERROR: [filemgmt 20-1081] Replace file failure for imported file. Reimport failed. Error copying file locally: C:/Users/28193/Desktop/project11/project11.srcs/sources_1/imports/1/minisys.v
+ERROR: [Common 17-39] 'update_files' failed due to earlier errors.
+exit
+INFO: [Common 17-206] Exiting Vivado at Thu May 14 13:13:08 2026...

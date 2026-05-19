@@ -1,0 +1,18 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  "../../../project11.srcs/sources_1/ip/ram/sim/ram.v" --include "../../../project11.srcs/sources_1/ip/cpuclk"
+verilog xil_defaultlib  "../../../project11.srcs/sources_1/ip/prgrom/sim/prgrom.v" --include "../../../project11.srcs/sources_1/ip/cpuclk"
+verilog xil_defaultlib  "../../../project11.srcs/sources_1/ip/cpuclk/cpuclk_clk_wiz.v" --include "../../../project11.srcs/sources_1/ip/cpuclk"
+verilog xil_defaultlib  "../../../project11.srcs/sources_1/ip/cpuclk/cpuclk.v" --include "../../../project11.srcs/sources_1/ip/cpuclk"
+verilog xil_defaultlib  "../../../project11.srcs/sources_1/imports/小组/Ifetc32.v" --include "../../../project11.srcs/sources_1/ip/cpuclk"
+verilog xil_defaultlib  "../../../project11.srcs/sources_1/imports/小组/control32.v" --include "../../../project11.srcs/sources_1/ip/cpuclk"
+verilog xil_defaultlib  "../../../project11.srcs/sources_1/imports/小组/dmemory32.v" --include "../../../project11.srcs/sources_1/ip/cpuclk"
+verilog xil_defaultlib  "../../../project11.srcs/sources_1/imports/小组/executs32.v" --include "../../../project11.srcs/sources_1/ip/cpuclk"
+verilog xil_defaultlib  "../../../project11.srcs/sources_1/imports/小组/idecode32.v" --include "../../../project11.srcs/sources_1/ip/cpuclk"
+verilog xil_defaultlib  "../../../project11.srcs/sources_1/imports/小组/minisys.v" --include "../../../project11.srcs/sources_1/ip/cpuclk"
+verilog xil_defaultlib  "../../../project11.srcs/sim_1/imports/sim/minisys_sim.v" --include "../../../project11.srcs/sources_1/ip/cpuclk"
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

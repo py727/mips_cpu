@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="synth_1" LaunchPart="xc7a100tfgg484-1" LaunchTime="1778735703">
+  <File Type="PA-TCL" Name="minisys.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="minisys_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="minisys_reports.tcl"/>
+  <File Type="RDS-RDS" Name="minisys.vds"/>
+  <File Type="RDS-UTIL" Name="minisys_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="minisys_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="minisys.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="minisys_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="minisys_timing_summary_synth.pb"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/imports/小组/Ifetc32.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../系统设计/小组/Ifetc32.v"/>
+        <Attr Name="ImportTime" Val="1653133232"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/小组/control32.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../系统设计/小组/control32.v"/>
+        <Attr Name="ImportTime" Val="1653133322"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/小组/dmemory32.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../系统设计/小组/dmemory32.v"/>
+        <Attr Name="ImportTime" Val="1624116160"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/小组/executs32.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../系统设计/小组/executs32.v"/>
+        <Attr Name="ImportTime" Val="1653205938"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/小组/idecode32.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../系统设计/小组/idecode32.v"/>
+        <Attr Name="ImportTime" Val="1653133276"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/小组/minisys.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PSRCDIR/sources_1/imports/1/minisys.v"/>
+        <Attr Name="ImportTime" Val="1778735430"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/prgrom/prgmip32.coe">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/ram/dmem32.coe">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="minisys"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <Config>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017"/>
+    <Step Id="synth_design"/>
+  </Strategy>
+  <BlockFileSet Type="BlockSrcs" Name="prgrom"/>
+  <BlockFileSet Type="BlockSrcs" Name="cpuclk"/>
+  <BlockFileSet Type="BlockSrcs" Name="ram"/>
+</GenRun>
