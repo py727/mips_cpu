@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Thu May 14 13:17:18 2026
+# Process ID: 25544
+# Current directory: C:/Users/28193/Desktop/project11/project11.runs/impl_1
+# Command line: vivado.exe -log minisys.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source minisys.tcl -notrace
+# Log file: C:/Users/28193/Desktop/project11/project11.runs/impl_1/minisys.vdi
+# Journal file: C:/Users/28193/Desktop/project11/project11.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source minisys.tcl -notrace
