@@ -24,14 +24,14 @@ module idcode32_sim(
     );
     // input 
     reg[31:0]  Instruction = 32'b000000_00010_00011_00111_00000_100000; //add $7,$2,$3
-    reg[31:0]  read_data = 32'h00000000;                    //  ´ÓDATA RAM or I/O portÈ¡³öµÄÊı¾İ
-    reg[31:0]  ALU_result = 32'h00000005;                   //  ĞèÒªÀ©Õ¹Á¢¼´Êıµ½32Î»
+    reg[31:0]  read_data = 32'h00000000;                    //  ä»DATA RAM or I/O portå–å‡ºçš„æ•°æ®
+    reg[31:0]  ALU_result = 32'h00000005;                   //  éœ€è¦æ‰©å±•ç«‹å³æ•°åˆ°32ä½
     reg        Jal = 1'b0; 
     reg        RegWrite = 1'b1;
     reg        MemtoReg = 1'b0;
     reg        RegDst = 1'b1;
     reg         clock = 1'b0 ,reset = 1'b1;
-    reg[31:0]  opcplus4 = 32'h00000004;                 // À´×ÔÈ¡Ö¸µ¥Ôª£¬JALÖĞÓÃ
+    reg[31:0]  opcplus4 = 32'h00000004;                 // æ¥è‡ªå–æŒ‡å•å…ƒï¼ŒJALä¸­ç”¨
     // output
     wire[31:0] read_data_1;
     wire[31:0] read_data_2;

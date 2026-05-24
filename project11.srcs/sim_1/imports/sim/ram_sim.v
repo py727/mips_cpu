@@ -2,9 +2,9 @@
 module ram_sim(
 );
 // input
-reg[31:0] address = 32'h00000001;     //来自memorio模块，源头是来自执行单元算出的alu_result 32'h00000010
-reg[31:0] write_data = 32'ha0000000;  //来自译码单元的read_data2
-reg  Memwrite = 1'b0;         //来自控制单元
+reg[31:0] address = 32'h00000001;     //鏉ヨ嚜memorio妯″潡锛屾簮澶存槸鏉ヨ嚜鎵ц鍗曞厓绠楀嚭鐨刟lu_result 32'h00000010
+reg[31:0] write_data = 32'ha0000000;  //鏉ヨ嚜璇戠爜鍗曞厓鐨剅ead_data2
+reg  Memwrite = 1'b0;         //鏉ヨ嚜鎺у埗鍗曞厓
 reg  clock = 1'b0;    
 // output
 wire[31:0] read_data;

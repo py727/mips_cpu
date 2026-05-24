@@ -35,7 +35,7 @@ module ifetc32_sim(
     reg        clock = 1'b0,reset = 1'b1;
 
     // output
-    wire[31:0] Instruction;            // Êä³öÖ¸Áî
+    wire[31:0] Instruction;            // è¾“å‡ºæŒ‡ä»¤
     wire[31:0] PC_plus_4_out;
     wire[31:0] opcplus4;
         
