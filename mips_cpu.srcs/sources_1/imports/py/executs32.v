@@ -63,14 +63,22 @@ module Executs32(Read_data_1,Read_data_2,Sign_extend,Function_opcode,Opcode,ALUO
     end
 
     always @* begin                      //完成运算结果输出
-        if(((ALU_ctl==3'b111) && (Exe_code[3]==1)) || ((ALU_ctl[2:1]==2'b11) && (I_format==1))) 
-            ALU_Result = {31'b0000000000000000000000000000000,ALU_output_mux[31]};   //用I_format是否为1和Exe_code[3]是否为1区别所有slt类指令
+        // 处理 slt, sltu, slti, sltiu 指令
+        if(((ALU_ctl==3'b111) && (Exe_code[3]==1)) || ((ALU_ctl[2:1]==2'b11) && (I_format==1))) begin
+            // 巧妙区分无符号和有符号比较：sltu和sltiu的 Exe_code[0] 都是 1
+            if(Exe_code[0] == 1'b1) 
+                // 无符号比较 (sltu, sltiu)
+                ALU_Result = (Ainput < Binput) ? 32'h00000001 : 32'h00000000;
+            else
+                // 有符号比较 (slt, slti)
+                ALU_Result = ($signed(Ainput) < $signed(Binput)) ? 32'h00000001 : 32'h00000000;
+        end
         else if((ALU_ctl==3'b101) && (I_format==1))
-            ALU_Result = {Binput[15:0],16'b0000000000000000};   // 用I_format是否为1来区别lui和nor
+            ALU_Result = {Binput[15:0],16'b0000000000000000};   // lui指令
         else if(Sftmd==1) 
-            ALU_Result = Sinput;   // 用Sftmd＝1区别移位指令
+            ALU_Result = Sinput;                                // 移位指令
         else
-            ALU_Result = ALU_output_mux[31:0];     // 其他所有情况
+            ALU_Result = ALU_output_mux[31:0];                  // 其他所有情况
     end
         
     assign Add_Result = PC_plus_4 + {Sign_extend[29:0],2'b00};        //算出beq和bne的PC值  
