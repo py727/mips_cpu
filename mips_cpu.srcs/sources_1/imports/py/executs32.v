@@ -33,7 +33,7 @@ module Executs32(Read_data_1,Read_data_2,Sign_extend,Function_opcode,Opcode,ALUO
     assign ALU_ctl[0] = (Exe_code[0] | Exe_code[3]) & ALUOp[1];
     assign ALU_ctl[1] = ((!Exe_code[2]) | (!ALUOp[1]));
     assign ALU_ctl[2] = (Exe_code[1] & ALUOp[1]) | ALUOp[0];
-    always @(ALU_ctl or Ainput or Binput) begin
+    always @* begin
         case(ALU_ctl)
             3'b000:ALU_output_mux = Ainput & Binput;    // and，andi
             3'b001:ALU_output_mux = Ainput | Binput;   // or，ori
@@ -54,9 +54,9 @@ module Executs32(Read_data_1,Read_data_2,Sign_extend,Function_opcode,Opcode,ALUO
             3'b000:Sinput = Binput << Shamt;               //Sll
             3'b010:Sinput = Binput >> Shamt;               //Srl
             3'b011:Sinput = $signed(Binput) >>> Shamt;      //Sra，需强调是有符号数
-            3'b100:Sinput = Binput << Ainput;              //Sllv
-            3'b110:Sinput = Binput >> Ainput;              //Srlv
-            3'b111:Sinput = $signed(Binput) >>> Ainput;     //Srav，需强调是有符号数
+            3'b100:Sinput = Binput << Ainput[4:0];              //Sllv
+            3'b110:Sinput = Binput >> Ainput[4:0];              //Srlv
+            3'b111:Sinput = $signed(Binput) >>> Ainput[4:0];     //Srav，需强调是有符号数
             default:Sinput = Binput;
         endcase
        else Sinput = Binput;
@@ -65,7 +65,7 @@ module Executs32(Read_data_1,Read_data_2,Sign_extend,Function_opcode,Opcode,ALUO
     always @* begin                      //完成运算结果输出
         // 处理 slt, sltu, slti, sltiu 指令
         if(((ALU_ctl==3'b111) && (Exe_code[3]==1)) || ((ALU_ctl[2:1]==2'b11) && (I_format==1))) begin
-            // 巧妙区分无符号和有符号比较：sltu和sltiu的 Exe_code[0] 都是 1
+            // 无符号和有符号比较：sltu和sltiu的 Exe_code[0] 都是 1
             if(Exe_code[0] == 1'b1) 
                 // 无符号比较 (sltu, sltiu)
                 ALU_Result = (Ainput < Binput) ? 32'h00000001 : 32'h00000000;
