@@ -1,0 +1,12 @@
+题目五：31条指令单周期系统
+一、	设计任务
+设计并实现基于MIPS指令集的31条指令单周期系统。
+二、	设计要求
+支持指令集应包含以下指令：ADD、ADDU、SUB、SUBU、AND、OR、XOR、NOR、SLT、SLTI、SLTU、SLTIU、SLL、SRL、SRA、SLLV、SRLV、SRAV、ADDI、ADDIU、ANDI、ORI、XORI、LUI、LW、SW、BEQ、BNE、J、JAL、JR
+所有运算类指令均可以不支持溢出。
+单周期设计。
+三、	测试要求
+可通过仿真或Minisys实验箱下板进行测试。
+所有指令都应被充分测试。
+详细说明你的测试程序原理及测试结果，应明确说明测试程序的测试期望，即应该得到怎样的运行结果。
+每条指令都应该有注释。
