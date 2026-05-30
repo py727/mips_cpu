@@ -21,6 +21,7 @@
     <Option Name="ActiveSimSet" Val="sim_1"/>
     <Option Name="DefaultLib" Val="xil_defaultlib"/>
     <Option Name="ProjectType" Val="Default"/>
+    <Option Name="IPOutputRepo" Val="$PCACHEDIR/ip"/>
     <Option Name="IPCachePermission" Val="read"/>
     <Option Name="IPCachePermission" Val="write"/>
     <Option Name="EnableCoreContainer" Val="FALSE"/>
@@ -30,20 +31,20 @@
     <Option Name="EnableBDX" Val="FALSE"/>
     <Option Name="DSAVendor" Val="xilinx"/>
     <Option Name="DSANumComputeUnits" Val="16"/>
-    <Option Name="WTXSimLaunchSim" Val="346"/>
+    <Option Name="WTXSimLaunchSim" Val="361"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="46"/>
-    <Option Name="WTModelSimExportSim" Val="46"/>
-    <Option Name="WTQuestaExportSim" Val="46"/>
-    <Option Name="WTIesExportSim" Val="46"/>
-    <Option Name="WTVcsExportSim" Val="46"/>
-    <Option Name="WTRivieraExportSim" Val="46"/>
-    <Option Name="WTActivehdlExportSim" Val="46"/>
+    <Option Name="WTXSimExportSim" Val="52"/>
+    <Option Name="WTModelSimExportSim" Val="52"/>
+    <Option Name="WTQuestaExportSim" Val="52"/>
+    <Option Name="WTIesExportSim" Val="52"/>
+    <Option Name="WTVcsExportSim" Val="52"/>
+    <Option Name="WTRivieraExportSim" Val="52"/>
+    <Option Name="WTActivehdlExportSim" Val="52"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -149,7 +150,7 @@
       </File>
       <File Path="$PSRCDIR/sim_1/imports/sim/ram_sim.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UserDisabled" Val="1"/>
           <Attr Name="ImportPath" Val="C:/Users/28193/Desktop/系统设计/minisys1_classfiles/minisys/sim/ram_sim.v"/>
           <Attr Name="ImportTime" Val="1470638312"/>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -157,11 +158,11 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sim_1/imports/sim/exe_sim.v">
+      <File Path="$PSRCDIR/sim_1/new/control32_sim.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="C:/Users/28193/Desktop/系统设计/minisys1_classfiles/minisys/sim/exe_sim.v"/>
-          <Attr Name="ImportTime" Val="1470633905"/>
+          <Attr Name="UserDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="C:/Users/28193/Desktop/mips_cpu/project11.srcs/sim_1/new/control32_sim.v"/>
+          <Attr Name="ImportTime" Val="1779600381"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -169,7 +170,7 @@
       </File>
       <File Path="$PSRCDIR/sim_1/imports/sim/idcode32_sim.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UserDisabled" Val="1"/>
           <Attr Name="ImportPath" Val="C:/Users/28193/Desktop/系统设计/minisys1_classfiles/minisys/sim/idcode32_sim.v"/>
           <Attr Name="ImportTime" Val="1470579197"/>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -179,7 +180,7 @@
       </File>
       <File Path="$PSRCDIR/sim_1/imports/sim/ifetc32_sim.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UserDisabled" Val="1"/>
           <Attr Name="ImportPath" Val="C:/Users/28193/Desktop/系统设计/minisys1_classfiles/minisys/sim/ifetc32_sim.v"/>
           <Attr Name="ImportTime" Val="1470574939"/>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -187,20 +188,20 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sim_1/new/cpuclk_sim.v">
+      <File Path="$PSRCDIR/sim_1/imports/sim/exe_sim.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="C:/Users/28193/Desktop/mips_cpu/project11.srcs/sim_1/new/cpuclk_sim.v"/>
-          <Attr Name="ImportTime" Val="1779600381"/>
+          <Attr Name="UserDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="C:/Users/28193/Desktop/系统设计/minisys1_classfiles/minisys/sim/exe_sim.v"/>
+          <Attr Name="ImportTime" Val="1470633905"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sim_1/new/control32_sim.v">
+      <File Path="$PSRCDIR/sim_1/new/cpuclk_sim.v">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="C:/Users/28193/Desktop/mips_cpu/project11.srcs/sim_1/new/control32_sim.v"/>
+          <Attr Name="UserDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="C:/Users/28193/Desktop/mips_cpu/project11.srcs/sim_1/new/cpuclk_sim.v"/>
           <Attr Name="ImportTime" Val="1779600381"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
