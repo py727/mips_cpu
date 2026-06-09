@@ -48,7 +48,7 @@ module exe_sim();
         input        sft, src, i_fmt, jr,
         input [31:0] exp_res, exp_add,
         input        exp_zero,
-        input [127:0] case_name // 用于打印通道名称
+        input [255:0] case_name // 用于打印通道名称
     );
         begin
             // 施加激励
