@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="35" Path="D:/mips_cpu/mips_cpu.xpr">
+<Project Version="7" Minor="35" Path="C:/Users/28193/Desktop/mips_cpu/mips_cpu.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="5aa56c5fb4b44eeead15d3370fe9a1aa"/>
@@ -13,7 +13,7 @@
     <Option Name="CompiledLibDirModelSim" Val="$PCACHEDIR/compile_simlib/modelsim"/>
     <Option Name="CompiledLibDirQuesta" Val="$PCACHEDIR/compile_simlib/questa"/>
     <Option Name="CompiledLibDirIES" Val="$PCACHEDIR/compile_simlib/ies"/>
-    <Option Name="CompiledLibDirXcelium" Val="C:/Users/28193/Desktop/mips_cpu/project11.cache/compile_simlib/xcelium"/>
+    <Option Name="CompiledLibDirXcelium" Val="$PPRDIR/project11.cache/compile_simlib/xcelium"/>
     <Option Name="CompiledLibDirVCS" Val="$PCACHEDIR/compile_simlib/vcs"/>
     <Option Name="CompiledLibDirRiviera" Val="$PCACHEDIR/compile_simlib/riviera"/>
     <Option Name="CompiledLibDirActivehdl" Val="$PCACHEDIR/compile_simlib/activehdl"/>
@@ -21,7 +21,7 @@
     <Option Name="ActiveSimSet" Val="sim_all"/>
     <Option Name="DefaultLib" Val="xil_defaultlib"/>
     <Option Name="ProjectType" Val="Default"/>
-    <Option Name="IPOutputRepo" Val="$PCACHEDIR/ip"/>
+    <Option Name="IPOutputRepo" Val="D:/mips_cpu/mips_cpu.cache/ip"/>
     <Option Name="IPCachePermission" Val="read"/>
     <Option Name="IPCachePermission" Val="write"/>
     <Option Name="EnableCoreContainer" Val="FALSE"/>
@@ -31,20 +31,20 @@
     <Option Name="EnableBDX" Val="FALSE"/>
     <Option Name="DSAVendor" Val="xilinx"/>
     <Option Name="DSANumComputeUnits" Val="16"/>
-    <Option Name="WTXSimLaunchSim" Val="372"/>
+    <Option Name="WTXSimLaunchSim" Val="387"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="52"/>
-    <Option Name="WTModelSimExportSim" Val="52"/>
-    <Option Name="WTQuestaExportSim" Val="52"/>
-    <Option Name="WTIesExportSim" Val="52"/>
-    <Option Name="WTVcsExportSim" Val="52"/>
-    <Option Name="WTRivieraExportSim" Val="52"/>
-    <Option Name="WTActivehdlExportSim" Val="52"/>
+    <Option Name="WTXSimExportSim" Val="56"/>
+    <Option Name="WTModelSimExportSim" Val="56"/>
+    <Option Name="WTQuestaExportSim" Val="56"/>
+    <Option Name="WTIesExportSim" Val="56"/>
+    <Option Name="WTVcsExportSim" Val="56"/>
+    <Option Name="WTRivieraExportSim" Val="56"/>
+    <Option Name="WTActivehdlExportSim" Val="56"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -57,7 +57,7 @@
       <Filter Type="Srcs"/>
       <File Path="$PSRCDIR/sources_1/imports/py/Ifetc32.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="C:/Users/28193/Desktop/mips_cpu/project11.srcs/sources_1/imports/py/Ifetc32.v"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/project11.srcs/sources_1/imports/py/Ifetc32.v"/>
           <Attr Name="ImportTime" Val="1779600381"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -66,7 +66,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/imports/py/control32.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="C:/Users/28193/Desktop/mips_cpu/project11.srcs/sources_1/imports/py/control32.v"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/project11.srcs/sources_1/imports/py/control32.v"/>
           <Attr Name="ImportTime" Val="1779600381"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -75,7 +75,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/imports/py/dmemory32.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="C:/Users/28193/Desktop/mips_cpu/project11.srcs/sources_1/imports/py/dmemory32.v"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/project11.srcs/sources_1/imports/py/dmemory32.v"/>
           <Attr Name="ImportTime" Val="1779600381"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -84,7 +84,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/imports/py/executs32.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="C:/Users/28193/Desktop/mips_cpu/project11.srcs/sources_1/imports/py/executs32.v"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/project11.srcs/sources_1/imports/py/executs32.v"/>
           <Attr Name="ImportTime" Val="1779600381"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -93,14 +93,14 @@
       </File>
       <File Path="$PSRCDIR/sources_1/imports/py/idecode32.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="C:/Users/28193/Desktop/mips_cpu/project11.srcs/sources_1/imports/py/idecode32.v"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/project11.srcs/sources_1/imports/py/idecode32.v"/>
           <Attr Name="ImportTime" Val="1779600381"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/py/minisys.v">
+      <File Path="$PSRCDIR/sources_1/imports/py/motherboard.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -109,7 +109,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/ip/prgrom/prgmip32.coe">
         <FileInfo>
-          <Attr Name="ImportPath" Val="C:/Users/28193/Desktop/mips_cpu/project11.srcs/sources_1/ip/prgrom/prgmip32.coe"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/project11.srcs/sources_1/ip/prgrom/prgmip32.coe"/>
           <Attr Name="ImportTime" Val="1779600381"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -117,7 +117,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/ip/ram/dmem32.coe">
         <FileInfo>
-          <Attr Name="ImportPath" Val="C:/Users/28193/Desktop/mips_cpu/project11.srcs/sources_1/ip/ram/dmem32.coe"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/project11.srcs/sources_1/ip/ram/dmem32.coe"/>
           <Attr Name="ImportTime" Val="1779600381"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -125,7 +125,7 @@
       </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="minisys"/>
+        <Option Name="TopModule" Val="motherboard"/>
         <Option Name="TopAutoSet" Val="TRUE"/>
       </Config>
     </FileSet>
@@ -138,7 +138,7 @@
     <FileSet Name="prgrom" Type="BlockSrcs" RelSrcDir="$PSRCDIR/prgrom">
       <File Path="$PSRCDIR/sources_1/ip/prgrom/prgrom.xci">
         <FileInfo>
-          <Attr Name="ImportPath" Val="C:/Users/28193/Desktop/mips_cpu/project11.srcs/sources_1/ip/prgrom/prgrom.xci"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/project11.srcs/sources_1/ip/prgrom/prgrom.xci"/>
           <Attr Name="ImportTime" Val="1779600381"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -153,7 +153,7 @@
     <FileSet Name="cpuclk" Type="BlockSrcs" RelSrcDir="$PSRCDIR/cpuclk">
       <File Path="$PSRCDIR/sources_1/ip/cpuclk/cpuclk.xci">
         <FileInfo>
-          <Attr Name="ImportPath" Val="C:/Users/28193/Desktop/mips_cpu/project11.srcs/sources_1/ip/cpuclk/cpuclk.xci"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/project11.srcs/sources_1/ip/cpuclk/cpuclk.xci"/>
           <Attr Name="ImportTime" Val="1779600381"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -168,7 +168,7 @@
     <FileSet Name="ram" Type="BlockSrcs" RelSrcDir="$PSRCDIR/ram">
       <File Path="$PSRCDIR/sources_1/ip/ram/ram.xci">
         <FileInfo>
-          <Attr Name="ImportPath" Val="C:/Users/28193/Desktop/mips_cpu/project11.srcs/sources_1/ip/ram/ram.xci"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/project11.srcs/sources_1/ip/ram/ram.xci"/>
           <Attr Name="ImportTime" Val="1779600381"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -206,7 +206,7 @@
     </FileSet>
     <FileSet Name="sim_all" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/sim_all">
       <Filter Type="Srcs"/>
-      <File Path="$PSRCDIR/sim_1/imports/sim/minisys_sim.v">
+      <File Path="$PSRCDIR/sim_1/imports/sim/cpu_sim.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -220,7 +220,7 @@
       </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="minisys_sim"/>
+        <Option Name="TopModule" Val="cpu_sim"/>
         <Option Name="TopLib" Val="xil_defaultlib"/>
         <Option Name="TopAutoSet" Val="TRUE"/>
         <Option Name="TransportPathDelay" Val="0"/>

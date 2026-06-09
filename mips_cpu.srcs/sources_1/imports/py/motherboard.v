@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module minisys(rst, clk, d);
+module motherboard(rst, clk, d);
     input rst;               // 板上的Reset信号，高电平复位
     input clk;               // 板上的100MHz时钟信号
     output d;                // 这里的 d 通常可以接一个 LED 或者作为调试输出
