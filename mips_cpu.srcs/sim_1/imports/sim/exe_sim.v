@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 
 module exe_sim();
-    // 定义与被测模块接口对应的信号
+    // 1. 定义与被测模块接口对应的信号
     reg [31:0]  Read_data_1;
     reg [31:0]  Read_data_2;
     reg [31:0]  Sign_extend;
@@ -19,7 +19,7 @@ module exe_sim();
     wire [31:0] ALU_Result;
     wire [31:0] Add_Result;
 
-    // 实例化 Executs32
+    // 2. 实例化 Executs32
     Executs32 UUT (
         .Read_data_1(Read_data_1),
         .Read_data_2(Read_data_2),
@@ -31,115 +31,81 @@ module exe_sim();
         .Sftmd(Sftmd),
         .ALUSrc(ALUSrc),
         .I_format(I_format),
-        .Jrn(jrn),
+        .Jrn(Jrn),               
         .Zero(Zero),
         .ALU_Result(ALU_Result),
         .Add_Result(Add_Result),
         .PC_plus_4(PC_plus_4)
     );
 
-    // 测试过程
+    // 3. 定义自动化测试任务 (Task)
+    // 该任务自动施加激励、等待延时、并进行结果比对
+    task verify_case(
+        input [31:0] r1, r2, ext, pc4,
+        input [5:0]  func, exe_op,
+        input [1:0]  alu_op,
+        input [4:0]  sh,
+        input        sft, src, i_fmt, jr,
+        input [31:0] exp_res, exp_add,
+        input        exp_zero,
+        input [127:0] case_name // 用于打印通道名称
+    );
+        begin
+            // 施加激励
+            Read_data_1 = r1; Read_data_2 = r2; Sign_extend = ext; PC_plus_4 = pc4;
+            Function_opcode = func; Exe_opcode = exe_op; ALUOp = alu_op;
+            Shamt = sh; Sftmd = sft; ALUSrc = src; I_format = i_fmt; Jrn = jr;
+            
+            #10; // 给足组合逻辑物理延迟时间（模拟建立稳定状态）
+            
+            // 自动化断言比对
+            if ((ALU_Result === exp_res) && (Add_Result === exp_add) && (Zero === exp_zero)) begin
+                $display("[PASS] %0s | ALU_Result=%h, Add_Result=%h, Zero=%b", 
+                         case_name, ALU_Result, Add_Result, Zero);
+            end else begin
+                $display("[FAIL] %0s | ERROR!", case_name);
+                $display("       Expected: ALU_Result=%h, Add_Result=%h, Zero=%b", exp_res, exp_add, exp_zero);
+                $display("       Got     : ALU_Result=%h, Add_Result=%h, Zero=%b", ALU_Result, Add_Result, Zero);
+            end
+        end
+    endtask
+
+    // 4. 测试过程
     initial begin
-        $display("Starting Executs32 Template-based Simulation...");
+        $display("Starting Executs32 Professional Self-Checking Simulation...");
         
-        // 初始化所有输入
-        Read_data_1 = 0; Read_data_2 = 0; Sign_extend = 0;
-        Function_opcode = 0; Exe_opcode = 0; ALUOp = 0;
-        Shamt = 0; Sftmd = 0; ALUSrc = 0; I_format = 0;
-        Jrn = 0; PC_plus_4 = 0;
+        // ---------------------------------------------------------------------------------------------------------------------------------
+        // 任务参数顺序：r1, r2, ext, pc4, func, exe_op, alu_op, sh, sft, src, i_fmt, jr, exp_res, exp_add, exp_zero, case_name
+        // ---------------------------------------------------------------------------------------------------------------------------------
+        
+        // Case 1: ADD (R-type)
+        verify_case(32'd10, 32'd20, 32'd0, 32'd0, 6'b100000, 6'b000000, 2'b10, 5'd0, 0, 0, 0, 0, 32'd30, 32'd0, 1'b0, "Case 1: ADD");
 
-        // -------------------------------------------------------------
-        // Case 1: ADD (R-type) - 算术加法
-        // 10 + 20 = 30
-        // -------------------------------------------------------------
-        #100;
-        Read_data_1 = 32'd10; Read_data_2 = 32'd20;
-        Function_opcode = 6'b100000; Exe_opcode = 6'b000000;
-        ALUOp = 2'b10; ALUSrc = 1'b0; I_format = 1'b0;
-        #10;
-        $display("[ADD] Result: %d (Expected: 30)", ALU_Result);
+        // Case 2: ADDI (I-type, 带符号加法)
+        // 100 + (-50) = 50. 同时分支计算：0 + (-50 << 2) = -200 (32'hffffff38)
+        verify_case(32'd100, 32'd0, -32'd50, 32'd0, 6'b000000, 6'b001000, 2'b10, 5'd0, 0, 1, 1, 0, 32'd50, 32'hffffff38, 1'b0, "Case 2: ADDI");
 
-        // -------------------------------------------------------------
-        // Case 2: ADDI (I-type) - 带符号立即数加法
-        // 100 + (-50) = 50
-        // -------------------------------------------------------------
-        #100;
-        Read_data_1 = 32'd100; Sign_extend = -32'd50;
-        Exe_opcode = 6'b001000; // ADDI
-        ALUOp = 2'b10; ALUSrc = 1'b1; I_format = 1'b1;
-        #10;
-        $display("[ADDI] Result: %d (Expected: 50)", $signed(ALU_Result));
+        // Case 3: SRA (算术右移，符号位保持)
+        verify_case(32'd0, 32'h80000000, 32'd0, 32'd0, 6'b000011, 6'b000000, 2'b10, 5'd2, 1, 0, 0, 0, 32'he0000000, 32'd0, 1'b0, "Case 3: SRA");
 
-        // -------------------------------------------------------------
-        // Case 3: SRA (Shift Right Arithmetic) - 算术右移(保留符号)
-        // 0x80000000 >> 2 = 0xE0000000
-        // -------------------------------------------------------------
-        #100;
-        Read_data_2 = 32'h80000000; 
-        Shamt = 5'd2;
-        Function_opcode = 6'b000011; // SRA 的功能码
-        Sftmd = 1'b1;                // 开启移位
-        I_format = 1'b0;             // R-type
-        ALUSrc = 1'b0;               // 【关键修改点】必须设为0，选择 Read_data_2 作为输入
-        ALUOp = 2'b10;               // R-type 运算
-        #10;
-        $display("[SRA] Result: %h (Expected: e0000000)", ALU_Result);
+        // Case 4: SLT (有符号比较) -10 < 5 成立
+        verify_case(-32'd10, 32'd5, 32'd0, 32'd0, 6'b101010, 6'b000000, 2'b10, 5'd0, 0, 0, 0, 0, 32'd1, 32'd0, 1'b0, "Case 4: SLT");
 
-        // -------------------------------------------------------------
-        // Case 4: SLT (Set on Less Than) - 有符号比较
-        // -10 < 5 ? 1 : 0
-        // -------------------------------------------------------------
-        #100;
-        Read_data_1 = -32'd10; Read_data_2 = 32'd5;
-        Function_opcode = 6'b101010; // SLT
-        ALUOp = 2'b10; Sftmd = 1'b0; ALUSrc = 1'b0; I_format = 1'b0;
-        #10;
-        $display("[SLT] Result: %d (Expected: 1)", ALU_Result);
+        // Case 5: SLTU (无符号比较) 无符号下 -10(0xfffffff6) > 5，不成立
+        verify_case(-32'd10, 32'd5, 32'd0, 32'd0, 6'b101011, 6'b000000, 2'b10, 5'd0, 0, 0, 0, 0, 32'd0, 32'd0, 1'b0, "Case 5: SLTU");
 
-        // -------------------------------------------------------------
-        // Case 5: SLTU (Set on Less Than Unsigned) - 无符号比较
-        // (unsigned)-10 < 5 ? 1 : 0  => 0xFFFFFFF6 < 5 为假
-        // -------------------------------------------------------------
-        #100;
-        Function_opcode = 6'b101011; // SLTU
-        #10;
-        $display("[SLTU] Result: %d (Expected: 0)", ALU_Result);
+        // Case 6: LUI (加载高位立即数) 
+        // 扩展立即数高位拼接 16'b0。同时算地址分支：0xABCD << 2 = 0x2AF34
+        verify_case(32'd0, 32'd0, 32'h0000ABCD, 32'd0, 6'b000000, 6'b001111, 2'b10, 5'd0, 0, 1, 1, 0, 32'habcd0000, 32'h0002AF34, 1'b0, "Case 6: LUI");
 
-        // -------------------------------------------------------------
-        // Case 6: LUI (Load Upper Immediate) - 高位加载
-        // 0xABCD -> 0xABCD0000
-        // -------------------------------------------------------------
-        #100;
-        Sign_extend = 32'h0000ABCD;
-        Exe_opcode = 6'b001111; // LUI
-        ALUOp = 2'b10; ALUSrc = 1'b1; I_format = 1'b1;
-        #10;
-        $display("[LUI] Result: %h (Expected: abcd0000)", ALU_Result);
+        // Case 7: BEQ (相等分支跳转计算)
+        // 5 - 5 = 0 (Zero=1), 分支目标地址：0x10 + (4<<2) = 0x20
+        verify_case(32'd5, 32'd5, 32'd4, 32'h00000010, 6'b000000, 6'b000100, 2'b01, 5'd0, 0, 0, 0, 0, 32'd0, 32'h00000020, 1'b1, "Case 7: BEQ");
 
-        // -------------------------------------------------------------
-        // Case 7: BEQ (Branch If Equal) - 分支地址计算
-        // R1=5, R2=5, PC+4=0x00000010, Offset=4
-        // Result: Zero=1, Add_Result = 0x10 + (4*4) = 0x20
-        // -------------------------------------------------------------
-        #100;
-        Read_data_1 = 32'd5; Read_data_2 = 32'd5;
-        Sign_extend = 32'd4; PC_plus_4 = 32'h00000010;
-        Exe_opcode = 6'b000100; // BEQ
-        ALUOp = 2'b01; ALUSrc = 1'b0; I_format = 1'b0;
-        #10;
-        $display("[BEQ] Zero: %b, Add_Addr: %h (Expected: 1, 00000020)", Zero, Add_Result);
+        // Case 8: JR (寄存器跳转信号测试)
+        verify_case(32'd0, 32'd0, 32'd0, 32'd0, 6'b000000, 6'b000000, 2'b00, 5'd0, 0, 0, 0, 1, 32'd0, 32'd0, 1'b1, "Case 8: JR");
 
-        // -------------------------------------------------------------
-        // Case 8: JR (Jump Register)
-        // 只要确认 Jrn 信号传入且不影响常规计算即可
-        // -------------------------------------------------------------
-        #100;
-        Jrn = 1'b1;
-        #10;
-        $display("[JR] Jrn signal tested.");
-
-        #100;
-        $display("Simulation Finished.");
+        $display("All test cases completed.");
         $stop;
     end
 
