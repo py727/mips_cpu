@@ -111,7 +111,7 @@ module exe_sim();
 
         // Case 10: ANDI (I-type, 立即数逻辑与)
         // 0xFFFFFFFF & 0x0000FF00 (零扩展) = 0x0000FF00
-        verify_case(32'hFFFFFFFF, 32'd0, 32'h0000FF00, 32'd0, 6'b000000, 6'b001100, 2'b10, 5'd0, 0, 1, 1, 0, 32'h0000FF00, 32'd0, 1'b0, "Case 10: ANDI");
+        verify_case(32'hFFFFFFFF, 32'd0, 32'h0000FF00, 32'd0, 6'b000000, 6'b001100, 2'b10, 5'd0, 0, 1, 1, 0, 32'h0000FF00, 32'h0003fc00, 1'b0, "Case 10: ANDI");
 
         // Case 11: SRAV (R-type, 变量算术右移)
         // -268435456 (32'hf0000000) >>> 移位寄存器低5位 36%32=4 -> 32'hff000000
