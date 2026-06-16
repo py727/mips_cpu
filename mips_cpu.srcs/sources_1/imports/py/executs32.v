@@ -45,9 +45,9 @@ module Executs32 (
             3'b010: ALU_output_mux = Ainput + Binput;               // ADD, ADDI, LW, SW
             3'b011: ALU_output_mux = Ainput + Binput;               // ADDU, ADDIU
             3'b100: ALU_output_mux = Ainput ^ Binput;               // XOR, XORI
-            3'b101: ALU_output_mux = ~(Ainput | Binput);            // NOR
-            3'b110: ALU_output_mux = Ainput - Binput;               // SUB, BEQ, BNE
-            3'b111: ALU_output_mux = Ainput - Binput;               // SUBU, SLT, SLTU, SLTI, SLTIU
+            3'b101: ALU_output_mux = ~(Ainput | Binput);            // NOR, LUI
+            3'b110: ALU_output_mux = Ainput - Binput;               // SLTI, SUB, BEQ, BNE
+            3'b111: ALU_output_mux = Ainput - Binput;               // SUBU, SLT, SLTU, SLTIU
             default: ALU_output_mux = 32'h00000000;
         endcase
     end

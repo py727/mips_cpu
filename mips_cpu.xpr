@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="35" Path="D:/mips_cpu/mips_cpu.xpr">
+<Project Version="7" Minor="35" Path="C:/Users/28193/Desktop/mips_cpu/mips_cpu.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="5aa56c5fb4b44eeead15d3370fe9a1aa"/>
@@ -31,20 +31,20 @@
     <Option Name="EnableBDX" Val="FALSE"/>
     <Option Name="DSAVendor" Val="xilinx"/>
     <Option Name="DSANumComputeUnits" Val="16"/>
-    <Option Name="WTXSimLaunchSim" Val="388"/>
+    <Option Name="WTXSimLaunchSim" Val="392"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="58"/>
-    <Option Name="WTModelSimExportSim" Val="58"/>
-    <Option Name="WTQuestaExportSim" Val="58"/>
-    <Option Name="WTIesExportSim" Val="58"/>
-    <Option Name="WTVcsExportSim" Val="58"/>
-    <Option Name="WTRivieraExportSim" Val="58"/>
-    <Option Name="WTActivehdlExportSim" Val="58"/>
+    <Option Name="WTXSimExportSim" Val="60"/>
+    <Option Name="WTModelSimExportSim" Val="60"/>
+    <Option Name="WTQuestaExportSim" Val="60"/>
+    <Option Name="WTIesExportSim" Val="60"/>
+    <Option Name="WTVcsExportSim" Val="60"/>
+    <Option Name="WTRivieraExportSim" Val="60"/>
+    <Option Name="WTActivehdlExportSim" Val="60"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
